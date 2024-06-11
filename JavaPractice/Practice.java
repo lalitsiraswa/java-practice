@@ -1,4 +1,11 @@
 // -------- Constructor Overloading ------------
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 class Hospital {
     int variable1, variable2;
     double variable3;
@@ -426,3 +433,12 @@ class Animal {
 // // System.out.println(obj.method("l", "s"));
 // }
 // }
+// ---------------------------
+
+public class Practice {
+    public static void main(String[] args) {
+        List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        list = list.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+        list.forEach(System.out::println);
+    }
+}

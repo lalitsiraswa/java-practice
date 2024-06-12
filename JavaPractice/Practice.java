@@ -437,8 +437,13 @@ class Animal {
 
 public class Practice {
     public static void main(String[] args) {
-        List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        list = list.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
-        list.forEach(System.out::println);
+        // List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        // list = list.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+        // list.forEach(System.out::println);
+        try {
+
+        } finally {
+
+        }
     }
 }

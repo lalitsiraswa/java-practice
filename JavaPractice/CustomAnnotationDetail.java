@@ -133,10 +133,20 @@ public class CustomAnnotationDetail {
     public static void main(String[] args) {
         try {
             Person person = new Person();
-            person.setFirstName("lalit");
-            person.setLastName("siraswa");
-            person.setAge("24");
-            System.out.println(objectToJsonConvert(person));
+            // person.setFirstName("lalit");
+            // person.setLastName("siraswa");
+            // person.setAge("24");
+            // System.out.println(objectToJsonConvert(person));
+            // -------- Accessing Private Member Using Java Reflection -------
+            Class<?> clazz = person.getClass();
+            Field field = clazz.getDeclaredField("firstName");
+            field.setAccessible(true);
+            field.set(person, "Lalit");
+            System.out.println(field.get(person));
+            field = clazz.getDeclaredField("lastName");
+            field.setAccessible(true);
+            field.set(person, "Siraswa");
+            System.out.println(field.get(person));
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }

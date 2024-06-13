@@ -39,5 +39,8 @@ public class StreamAPIDetail {
                 .distinct()
                 .collect(Collectors.toList());
         System.out.println(distiStrings);
+        // Terminal operations
+        // -------- forEach()
+        myList.stream().forEach(System.out::println);
     }
 }

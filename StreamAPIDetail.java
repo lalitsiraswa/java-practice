@@ -15,6 +15,7 @@ public class StreamAPIDetail {
         IntStream intStream = Arrays.stream(numbers);
         // -----------------
         Stream<String> strStream = Stream.of("apple", "banana", "orange");
+        // Intermeditate operations
         // ----------------- filter()
         List<String> filtered = myList.stream()
                 .filter(s -> s.startsWith("a"))
@@ -28,5 +29,15 @@ public class StreamAPIDetail {
                 .map(String::length)
                 .collect(Collectors.toList());
         System.out.println(lengthList);
+        // -------- sorted()
+        List<String> sortedList = myList.stream()
+                .sorted()
+                .collect(Collectors.toList());
+        System.out.println(sortedList);
+        // -------- distinct()
+        List<String> distiStrings = myList.stream()
+                .distinct()
+                .collect(Collectors.toList());
+        System.out.println(distiStrings);
     }
 }

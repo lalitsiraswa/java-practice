@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -14,6 +15,10 @@ public class StreamAPIDetail {
         IntStream intStream = Arrays.stream(numbers);
         // -----------------
         Stream<String> strStream = Stream.of("apple", "banana", "orange");
-        // -----------------
+        // ----------------- filter()
+        List<String> filtered = myList.stream()
+                .filter(s -> s.startsWith("a"))
+                .collect(Collectors.toList());
+        System.out.println(filtered);
     }
 }

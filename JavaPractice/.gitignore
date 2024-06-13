@@ -1,0 +1,29 @@
+# Ignore all .class files
+*.class
+
+# Ignore other files or directories (optional)
+# For example, to ignore the build directory
+/build/
+
+# Ignore IntelliJ IDEA specific files
+/.idea/
+/*.iml
+
+# Ignore Eclipse specific files
+/.settings/
+/.project
+/.classpath
+
+# Ignore NetBeans specific files
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Ignore MacOS specific files
+.DS_Store
+
+# Ignore other binary and temporary files
+*.log
+*.tmp

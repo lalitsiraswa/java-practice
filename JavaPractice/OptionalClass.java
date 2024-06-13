@@ -30,5 +30,11 @@ public class OptionalClass {
         System.out.println("Optional 1 : " + op1);
         Optional<String> op2 = Optional.ofNullable(null);
         System.out.println("Optional 2 : " + op2);
+        // ----------- Optional orElse() method
+        Optional<Integer> op3 = Optional.of(4567);
+        System.out.println("Optional 3 : " + op3);
+        System.out.println("Value by orElse (100) method : " + op3.orElse(100));
+        op3 = op3.empty();
+        System.out.println("Value by orElse (100) method : " + op3.orElse(100));
     }
 }

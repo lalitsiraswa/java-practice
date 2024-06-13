@@ -25,5 +25,10 @@ public class OptionalClass {
         // It returns true if value is present,
         // otherwise false
         System.out.println(value.isPresent());
+        // ---------- Optional ofNullable() method
+        Optional<Integer> op1 = Optional.ofNullable(12345);
+        System.out.println("Optional 1 : " + op1);
+        Optional<String> op2 = Optional.ofNullable(null);
+        System.out.println("Optional 2 : " + op2);
     }
 }

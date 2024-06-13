@@ -22,5 +22,7 @@ public class StreamAPI {
                 .filter(num -> num % 2 == 0)
                 .collect(Collectors.toList());
         System.out.println("Printing the List after stream operation : " + ls);
+        // -------------- Empty Stream
+        Stream<String> streamEmpty = Stream.empty();
     }
 }

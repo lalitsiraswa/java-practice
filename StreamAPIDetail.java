@@ -20,5 +20,13 @@ public class StreamAPIDetail {
                 .filter(s -> s.startsWith("a"))
                 .collect(Collectors.toList());
         System.out.println(filtered);
+        // ----------- map()
+        // List<Integer> lengthList = myList.stream()
+        // .map(str -> str.length())
+        // .collect(Collectors.toList());
+        List<Integer> lengthList = myList.stream()
+                .map(String::length)
+                .collect(Collectors.toList());
+        System.out.println(lengthList);
     }
 }

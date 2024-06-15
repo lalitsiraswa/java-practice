@@ -1,5 +1,8 @@
 import java.util.Arrays;
 
+// A negative integer if the current object is less than the specified object.
+// Zero if the current object is equal to the specified object.
+// A positive integer if the current object is greater than the specified object.
 class Pair implements Comparable<Pair> {
     String x;
     int y;

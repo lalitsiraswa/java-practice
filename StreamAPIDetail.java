@@ -42,5 +42,9 @@ public class StreamAPIDetail {
         // Terminal operations
         // -------- forEach()
         myList.stream().forEach(System.out::println);
+        // -------- collect()
+        // --------- count()
+        long count = myList.stream().count();
+        System.out.println(count);
     }
 }

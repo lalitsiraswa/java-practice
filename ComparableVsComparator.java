@@ -5,10 +5,6 @@ class Movie implements Comparable<Movie> {
     private String name;
     private int year;
 
-    public int compareTo(Movie m) {
-        return this.year - m.year;
-    }
-
     public Movie(double rating, String name, int year) {
         this.rating = rating;
         this.name = name;
@@ -25,6 +21,11 @@ class Movie implements Comparable<Movie> {
 
     public int getYear() {
         return year;
+    }
+
+    @Override
+    public int compareTo(Movie movie) {
+        return this.year - movie.year;
     }
 }
 

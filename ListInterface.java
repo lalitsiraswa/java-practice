@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 public class ListInterface {
     public static void main(String[] args) {
@@ -17,5 +19,19 @@ public class ListInterface {
         System.out.println("\n" + al);
         for (int i = 0; i < al.size(); i++)
             System.out.print(al.get(i) + " ");
+        System.out.println();
+        // Java program to demonstrate the
+        // working of LinkedList
+        LinkedList<Integer> ll = new LinkedList<Integer>();
+        for (int i = 1; i <= 5; i++)
+            ll.add(i);
+        System.out.println(ll);
+        Iterator<Integer> iterator = ll.iterator();
+        while (iterator.hasNext()) {
+            Integer num = iterator.next();
+            System.out.print(num + " ");
+        }
+        ll.remove(3);
+        System.out.println("\n" + ll);
     }
 }

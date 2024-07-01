@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Vector;
 
 public class ListInterface {
     public static void main(String[] args) {
@@ -33,5 +34,21 @@ public class ListInterface {
         }
         ll.remove(3);
         System.out.println("\n" + ll);
+
+        // Java program to demonstrate the
+        // working of Vector
+        System.out.println("------------- Vector -----------------");
+        Vector<Integer> v = new Vector<Integer>();
+        for (int i = 1; i <= 5; i++)
+            v.add(i);
+        System.out.println(v);
+        v.remove(3);
+        System.out.println(v);
+        System.out.println();
+        Iterator<Integer> iterator2 = v.iterator();
+        while (iterator2.hasNext()) {
+            int num = iterator2.next();
+            System.out.print(num + " ");
+        }
     }
 }

@@ -1,6 +1,7 @@
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.TreeSet;
 
 public class SetInterface {
     public static void main(String[] args) {
@@ -29,6 +30,20 @@ public class SetInterface {
         lhs.add("Is");
         lhs.add("Very helpful");
         iterator = lhs.iterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + "  ");
+        }
+
+        System.out.println("------ Sorted Set Interface -------");
+        // Java program to demonstrate the
+        // working of a TreeSet
+        TreeSet<String> ts = new TreeSet<String>();
+        ts.add("Geeks");
+        ts.add("For");
+        ts.add("Geeks");
+        ts.add("Is");
+        ts.add("Very helpful");
+        iterator = ts.iterator();
         while (iterator.hasNext()) {
             System.out.print(iterator.next() + "  ");
         }

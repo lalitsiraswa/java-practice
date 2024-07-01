@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Stack;
 import java.util.Vector;
 
 public class ListInterface {
@@ -49,6 +51,23 @@ public class ListInterface {
         while (iterator2.hasNext()) {
             int num = iterator2.next();
             System.out.print(num + " ");
+        }
+
+        // Java program to demonstrate the
+        // working of Stack
+        System.out.println("\n------------- Stack -----------------");
+        Stack<Integer> stack = new Stack<Integer>();
+        for (int i = 1; i <= 5; i++)
+            stack.push(i * 10);
+        Iterator<Integer> stackIterator = stack.iterator();
+        while (stackIterator.hasNext()) {
+            System.out.print(stackIterator.next() + "  ");
+        }
+        System.out.println();
+        stack.pop();
+        stackIterator = stack.iterator();
+        while (stackIterator.hasNext()) {
+            System.out.print(stackIterator.next() + "  ");
         }
     }
 }

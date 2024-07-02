@@ -12,8 +12,7 @@ public class MapInterface {
         System.out.println("Value for 1 is : " + hm.get(1));
         // Travers through the hashmap
         for (Map.Entry<Integer, String> e : hm.entrySet()) {
-            System.out.println(e.getKey() + " "
-                    + e.getValue());
+            System.out.println(e.getKey() + " : " + e.getValue());
         }
     }
 }

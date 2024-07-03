@@ -1,13 +1,20 @@
 class StackCls {
     private int[] array;
     private int stackTop;
+    Object lock1, lock2;
 
     public StackCls(int capacity) {
         array = new int[capacity];
         stackTop = -1;
+        lock1 = new Object();
+        lock2 = new Object();
     }
 
-    public boolean push(int element) {
+    public synchronized boolean push(int element) {
+        // synchronized (lock1) {
+        // When we use 'synchronized' function the compiler create the below structure
+        // and in in the 'synchronized' block the locak will be 'this' Object
+        // synchronized (this) {
         if (isFull())
             return false;
         ++stackTop;
@@ -17,9 +24,16 @@ class StackCls {
         }
         array[stackTop] = element;
         return true;
+        // }
+        // }
     }
 
-    public int pop() {
+    public synchronized int pop() {
+        // synchronized (lock2) {
+        // synchronized (lock1) {
+        // When we use 'synchronized' function the compiler create the below structure
+        // and in in the 'synchronized' block the locak will be 'this' Object
+        // synchronized (this) {
         if (isEmpty())
             return Integer.MIN_VALUE;
         int obj = array[stackTop];
@@ -30,6 +44,8 @@ class StackCls {
         }
         --stackTop;
         return obj;
+        // }
+        // }
     }
 
     public boolean isEmpty() {

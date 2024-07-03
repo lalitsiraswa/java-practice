@@ -64,7 +64,7 @@ public class SynchronousThreadUnderstand {
         new Thread(() -> {
             int counter = 0;
             while (++counter <= 10) {
-                System.out.println(Thread.currentThread().getName() + ", " + counter + " : " + stack.push(10));
+                System.out.println(Thread.currentThread().getName() + ", " + counter + " : " + stack.push(counter * 5));
             }
         }, "Pusher").start();
 

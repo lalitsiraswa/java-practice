@@ -3,6 +3,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Vector;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -440,10 +441,38 @@ public class Practice {
         // List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
         // list = list.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
         // list.forEach(System.out::println);
-        try {
 
-        } finally {
+        // try {
 
-        }
+        // } finally {
+
+        // }
+        Vector<Integer> vector = new Vector<Integer>();
+        for (int i = 1; i <= 5; i++)
+            vector.add(i * 10);
+        Runnable task1 = () -> {
+            synchronized (vector) {
+                for (int i = 0; i < vector.size(); i++)
+                    System.out.print(vector.get(i) + "  ");
+            }
+        };
+        Thread t1 = new Thread(task1);
+        Thread t2 = new Thread(task1);
+        t1.start();
+        t2.start();
+
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        for (int i = 1; i <= 5; i++)
+            arrayList.add(i * 5);
+        Runnable task2 = () -> {
+            synchronized (arrayList) {
+                for (int i = 0; i < arrayList.size(); i++)
+                    System.out.print(arrayList.get(i) + "  ");
+            }
+        };
+        Thread t3 = new Thread(task2);
+        Thread t4 = new Thread(task2);
+        t3.start();
+        t4.start();
     }
 }

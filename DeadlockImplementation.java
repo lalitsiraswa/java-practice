@@ -17,13 +17,15 @@ public class DeadlockImplementation {
         }, "Thread-1");
 
         Thread thread2 = new Thread(() -> {
-            synchronized (lock2) {
+            // synchronized (lock2) {
+            synchronized (lock1) {
                 try {
                     Thread.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                synchronized (lock1) {
+                // synchronized (lock1) {
+                synchronized (lock2) {
                     System.out.println("Lock Acquired!");
                 }
             }

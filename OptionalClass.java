@@ -1,5 +1,7 @@
 import java.util.Optional;
 
+import javax.swing.text.html.Option;
+
 public class OptionalClass {
     public static void main(String[] args) {
         // String[] str = new String[5];
@@ -36,5 +38,16 @@ public class OptionalClass {
         System.out.println("Value by orElse (100) method : " + op3.orElse(100));
         op3 = op3.empty();
         System.out.println("Value by orElse (100) method : " + op3.orElse(100));
+        System.out.println("***************************");
+        String[] words = new String[10];
+        // String word = words[5].toLowerCase();
+        // System.out.println(word);
+        Optional<String> checkNull = Optional.ofNullable(words[5]);
+        if (checkNull.isPresent()) {
+            String word = words[5].toLowerCase();
+            System.out.println(word);
+        } else {
+            System.out.println("words is null");
+        }
     }
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -102,16 +103,33 @@ public class TestPractice {
         // System.out.println(shape3);
         // -------------
         // List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        // List<Integer> evenList = list.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
-        // List<Integer> oddList = list.stream().filter(x -> x % 2 != 0).collect(Collectors.toList());
-        // List<Integer> evenListDouble = evenList.stream().map(x -> x * 3).collect(Collectors.toList());
+        // List<Integer> evenList = list.stream().filter(x -> x % 2 ==
+        // 0).collect(Collectors.toList());
+        // List<Integer> oddList = list.stream().filter(x -> x % 2 !=
+        // 0).collect(Collectors.toList());
+        // List<Integer> evenListDouble = evenList.stream().map(x -> x *
+        // 3).collect(Collectors.toList());
         // System.out.println(evenListDouble);
         // List<Integer> unSortedList = Arrays.asList(5, 3, 8, 2, 4, 1, 5, 7, 4);
-        // List<Integer> sortedList = unSortedList.stream().sorted().collect(Collectors.toList());
+        // List<Integer> sortedList =
+        // unSortedList.stream().sorted().collect(Collectors.toList());
         // System.out.println(sortedList);
         // ---------------------------
         // List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
         // int elementSum = list1.stream().reduce(0, (a, b) -> a + b);
         // System.out.println(elementSum);
+        // -----------------------------
+        // List<Integer> list = List.of(1, 2, 3, 4, 5, 6);
+        // for (Integer element : list) {
+        // if (element == 2) {
+        // list.add(7);
+        // }
+        // }
+        ArrayList<Integer> arrList = new ArrayList<Integer>(List.of(1, 2, 3, 4, 5, 6));
+        for (Integer element : arrList) {
+            if (element == 2) {
+                arrList.add(7);
+            }
+        }
     }
 }

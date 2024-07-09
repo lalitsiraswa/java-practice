@@ -65,7 +65,6 @@ public class RadisysTest {
                 // ArrayList<Student>(studentMap.get(stu.getTotalScore()));
                 List<Student> existingStudents = studentMap.get(stu.getTotalScore());
                 existingStudents.add(stu);
-                System.out.println(existingStudents);
                 studentMap.put(stu.getTotalScore(), existingStudents);
             } else {
                 studentMap.put(stu.getTotalScore(), new ArrayList<Student>(List.of(stu)));

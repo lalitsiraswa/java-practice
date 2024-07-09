@@ -42,10 +42,12 @@ public class OptionalClass {
         String[] words = new String[10];
         // String word = words[5].toLowerCase();
         // System.out.println(word);
+        words[5] = "Lalit";
         Optional<String> checkNull = Optional.ofNullable(words[5]);
         if (checkNull.isPresent()) {
             String word = words[5].toLowerCase();
             System.out.println(word);
+            System.out.println(checkNull.get());
         } else {
             System.out.println("words is null");
         }

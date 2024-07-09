@@ -61,12 +61,14 @@ public class RadisysTest {
                 Comparator.reverseOrder());
         for (Student stu : students) {
             if (studentMap.containsKey(stu.getTotalScore())) {
-                List<Student> existingStudents = new ArrayList<Student>(studentMap.get(stu.getTotalScore()));
+                // List<Student> existingStudents = new
+                // ArrayList<Student>(studentMap.get(stu.getTotalScore()));
+                List<Student> existingStudents = studentMap.get(stu.getTotalScore());
                 existingStudents.add(stu);
                 System.out.println(existingStudents);
                 studentMap.put(stu.getTotalScore(), existingStudents);
             } else {
-                studentMap.put(stu.getTotalScore(), List.of(stu));
+                studentMap.put(stu.getTotalScore(), new ArrayList<Student>(List.of(stu)));
             }
         }
         int n = 2;

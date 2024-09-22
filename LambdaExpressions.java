@@ -17,6 +17,11 @@ class Test implements FuncInterface {
     }
 }
 
+@FunctionalInterface
+interface FuncInter1 {
+    int operation(int a, int b);
+}
+
 public class LambdaExpressions {
     public static void main(String[] args) {
         FuncInterface fObj = (int x) -> System.out.println(2 * x);
@@ -31,5 +36,11 @@ public class LambdaExpressions {
         // -------------------------------
         ArrayList<Integer> arrayList = new ArrayList<>(List.of(1, 2, 3, 4));
         arrayList.forEach(x -> System.out.println(x));
+        // ------- Lambda Expression with multiple arguments -------
+        System.out.println();
+        FuncInter1 add = (a, b) -> a + b;
+        FuncInter1 multiply = (a, b) -> a * b;
+        System.out.println(add.operation(6, 3));
+        System.out.println(multiply.operation(4, 5));
     }
 }

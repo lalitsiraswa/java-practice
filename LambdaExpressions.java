@@ -25,7 +25,11 @@ public class LambdaExpressions {
             for (int i = 1; i <= 5; i++) {
                 System.out.println(i * x);
             }
+            System.out.println();
         };
         fObj2.abstractFun(2);
+        // -------------------------------
+        ArrayList<Integer> arrayList = new ArrayList<>(List.of(1, 2, 3, 4));
+        arrayList.forEach(x -> System.out.println(x));
     }
 }

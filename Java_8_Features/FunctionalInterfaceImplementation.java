@@ -1,3 +1,8 @@
+// Some Built-in Java Functional Interfaces
+// Runnable –> This interface only contains the run() method.
+// Comparable –> This interface only contains the compareTo() method.
+// ActionListener –> This interface only contains the actionPerformed() method.
+// Callable –> This interface only contains the call() method.
 @FunctionalInterface
 interface Square {
     int calculate(int x);
@@ -5,7 +10,7 @@ interface Square {
 
 public class FunctionalInterfaceImplementation {
     public static void main(String[] args) {
-        // Before Java ssssss8, we had to create anonymous inner class objects or
+        // Before Java 8, we had to create anonymous inner class objects or
         // implement
         // these interfaces.
         new Thread(new Runnable() {

@@ -35,5 +35,15 @@ public class Streams {
         stream.sorted(Comparator.reverseOrder())
                 .flatMap(str -> Stream.of(str.charAt(1)))
                 .forEach(System.out::println);
+        System.out.println();
+        Stream<Integer> stream2 = Stream.of(5, 6, 7, 8, 9, 10);
+        Object[] arr = stream2.toArray();
+        System.out.println(Arrays.toString(arr));
+        Stream<String> stream3 = Stream.of("Geeks", "For", "Geeks", "GeeksQuiz");
+        Object[] arrObjects = stream3.toArray();
+        System.out.println(Arrays.toString(arrObjects));
+        Stream<String> stream4 = Stream.of("Geeks", "For", "Geeks", "GeeksQuiz");
+        Object[] arrObjects2 = stream4.filter(str -> str.startsWith("G")).toArray();
+        System.out.println(Arrays.toString(arrObjects2));
     }
 }

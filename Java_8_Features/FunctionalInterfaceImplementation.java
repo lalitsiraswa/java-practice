@@ -8,5 +8,10 @@ public class FunctionalInterfaceImplementation {
                 System.out.println("New thread created");
             }
         }).start();
+        // Java 8 onwards, we can assign lambda expression to its functional interface
+        // object like this:
+        new Thread(() -> {
+            System.out.println("New thread created!");
+        }).start();
     }
 }

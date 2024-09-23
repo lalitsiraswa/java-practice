@@ -1,6 +1,9 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Streams {
     public static void main(String[] args) {
@@ -19,5 +22,18 @@ public class Streams {
         List<Integer> updatedMarks = marks.stream().map(x -> x + 9).collect(Collectors.toList());
         System.out.println();
         System.out.println("Marks of students after grace : " + updatedMarks);
+
+        // ---------------- Terminal Operations ----------------
+        List<Integer> list = Arrays.asList(2, 4, 6, 8, 10);
+        // Sort in ascending order
+        list.stream().sorted().forEach(System.out::println);
+        System.out.println();
+        // sort in descending order
+        list.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+        System.out.println();
+        Stream<String> stream = Stream.of("GFG", "Geeks", "For", "GeeksForGeeks");
+        stream.sorted(Comparator.reverseOrder())
+                .flatMap(str -> Stream.of(str.charAt(1)))
+                .forEach(System.out::println);
     }
 }

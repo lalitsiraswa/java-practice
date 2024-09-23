@@ -1,7 +1,9 @@
+import java.lang.StackWalker.Option;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -54,5 +56,20 @@ public class Streams {
         // Exception in thread "main" java.lang.IllegalStateException: stream has
         // already been operated upon or closed
         // names.forEach(System.out::println);
+
+        List<Integer> numList2 = Arrays.asList(-9, -18, 0, 25, 4);
+        Optional<Integer> var = numList2.stream()
+                .max(Comparator.reverseOrder());
+        if (var.isPresent()) {
+            System.out.println(var.get());
+        } else {
+            System.out.println(-1);
+        }
+        Optional<Integer> varOptional = numList2.stream().max(Integer::compare);
+        if (varOptional.isPresent()) {
+            System.out.println(varOptional.get());
+        } else {
+            System.out.println(-1);
+        }
     }
 }

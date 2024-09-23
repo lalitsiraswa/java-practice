@@ -71,5 +71,17 @@ public class Streams {
         } else {
             System.out.println(-1);
         }
+
+        // ---------------- Intermediate Operations ----------------
+        System.out.println();
+        // Example 1: filter() method with the operation of filtering out the elements
+        // divisible by 5.
+        List<Integer> numList3 = Arrays.asList(3, 4, 6, 12, 20);
+        numList3.stream().filter(num -> num % 5 == 0)
+                .forEach(System.out::println);
+        // Example 2: filter() method with the operation of picking the elements with an
+        // upperCase letter at index 1.
+        Stream<String> strStream = Stream.of("Geeks", "FOr", "GeeksQuiz", "GEeksForGeeks");
+        strStream.filter(str -> Character.isUpperCase(str.charAt(1))).forEach(System.out::println);
     }
 }

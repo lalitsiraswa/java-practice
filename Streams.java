@@ -45,5 +45,14 @@ public class Streams {
         Stream<String> stream4 = Stream.of("Geeks", "For", "Geeks", "GeeksQuiz");
         Object[] arrObjects2 = stream4.filter(str -> str.startsWith("G")).toArray();
         System.out.println(Arrays.toString(arrObjects2));
+
+        List<String> strList = new ArrayList<>(List.of("Lalit", "Jaydeep", "Sanam"));
+        strList.stream().forEach(System.out::println);
+
+        Stream<String> names = Stream.of("Lalit", "Jaydeep", "Mayur", "Priya", "Sanam");
+        names.forEach(System.out::println);
+        // Exception in thread "main" java.lang.IllegalStateException: stream has
+        // already been operated upon or closed
+        // names.forEach(System.out::println);
     }
 }

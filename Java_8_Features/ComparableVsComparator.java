@@ -49,5 +49,11 @@ public class ComparableVsComparator {
         for (Movie movie : moviewList) {
             System.out.println(movie.getName() + " " + movie.getRating() + " " + movie.getYear());
         }
+        // -----------------------------
+        System.out.println();
+        Integer a = 30;
+        Integer b = 20;
+        Integer c = Integer.compare(a, b);
+        System.out.println(c);
     }
 }

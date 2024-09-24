@@ -1,4 +1,5 @@
 package Java_8_Features;
+
 import java.lang.StackWalker.Option;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -84,5 +85,13 @@ public class Streams {
         // upperCase letter at index 1.
         Stream<String> strStream = Stream.of("Geeks", "FOr", "GeeksQuiz", "GEeksForGeeks");
         strStream.filter(str -> Character.isUpperCase(str.charAt(1))).forEach(System.out::println);
+
+        System.out.println();
+        List<Integer> duplicateNumList = Arrays.asList(1, 2, 3, 2, 1, 3, 4, 5, 4, 3, 4, 5, 6, 5, 4, 5, 4, 3);
+        duplicateNumList.stream().distinct().forEach(System.out::println);
+
+        System.out.println();
+        List<String> duplicateStrList = Arrays.asList("lalit", "suraj", "jyoti", "lalit", "karthik", "suraj", "rajat");
+        duplicateStrList.stream().distinct().forEach(System.out::println);
     }
 }

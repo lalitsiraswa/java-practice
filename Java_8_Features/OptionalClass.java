@@ -1,5 +1,3 @@
-package Java_8_Features;
-
 import java.util.Optional;
 
 public class OptionalClass {

@@ -1,1 +1,2 @@
 -> The main aim of OOP's is to bind together the data and the functions that operate on them so that no other part of the code can access this data except that function.
+-> We can recognize a constructor because its declaration uses the same name as the class and it has no return type.

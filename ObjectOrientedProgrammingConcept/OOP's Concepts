@@ -1,2 +1,3 @@
 -> The main aim of OOP's is to bind together the data and the functions that operate on them so that no other part of the code can access this data except that function.
 -> We can recognize a constructor because its declaration uses the same name as the class and it has no return type.
+-> Simple Example to understand Abstraction:- Television remote control is an excellent example of abstraction. It simplifies the interaction with a TV by hiding the complexity behind simple buttons and symbols, making it easy without needing to understand the technical details of how the TV functions.

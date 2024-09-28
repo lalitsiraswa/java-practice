@@ -110,6 +110,47 @@ class Cat extends Animal {
     }
 }
 
+// --------------------- Interface ----------------------
+// Define an interface named Shape
+interface ShapeInterface {
+    // Abstract method for calculating the area
+    double calculateArea();
+}
+
+// Implement the interface in a class named Circle
+class CircleClass implements ShapeInterface {
+    private double radius;
+
+    // Constructor for circle
+    public CircleClass(double radius) {
+        this.radius = radius;
+    }
+
+    // Implementing the abstract method from the Shape
+    // interface
+    public double calculateArea() {
+        return Math.PI * Math.pow(radius, 2);
+    }
+}
+
+// Implement the interface in a class named Rectangle
+class RectangleClass implements ShapeInterface {
+    private double length;
+    private double width;
+
+    // Constructor for Rectangle
+    public RectangleClass(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    // Implementing the abstract method from the Shape
+    // interface
+    public double calculateArea() {
+        return length * width;
+    }
+}
+
 public class AbstractionImplementation {
     public static void main(String[] args) {
         Shape s1 = new Circle("Red", 2.2);
@@ -121,5 +162,10 @@ public class AbstractionImplementation {
         myDog.makeSound();
         Animal myCat = new Cat("Fluffy");
         myCat.makeSound();
+        // -------------------------
+        CircleClass circleClass = new CircleClass(5.0);
+        System.out.println("Area of Circle: " + circleClass.calculateArea());
+        RectangleClass rectangleClass = new RectangleClass(4.0, 6.0);
+        System.out.println("Area of Rectangle: " + rectangleClass.calculateArea());
     }
 }

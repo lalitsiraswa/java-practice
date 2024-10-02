@@ -1,4 +1,4 @@
-package DesignPattern;
+package design_pattern;
 
 // Java program implementing Singleton class
 // with using  getInstance() method

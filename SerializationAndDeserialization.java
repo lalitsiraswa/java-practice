@@ -52,9 +52,9 @@ public class SerializationAndDeserialization {
             System.out.println("a = " + objecDemo.a);
             System.out.println("b = " + objecDemo.b);
         } catch (IOException ex) {
-            System.out.println("IOException is caught");
+            System.out.println("IOException is caught!");
         } catch (ClassNotFoundException e) {
-            System.out.println("ClassNotFoundException is caught");
+            System.out.println("ClassNotFoundException is caught!");
         }
     }
 }

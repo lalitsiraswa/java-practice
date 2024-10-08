@@ -17,6 +17,6 @@ public class FlowControlInTryCatchFinallyInJava {
             System.out.println("inside finally block");
         }
         // rest program will be executed
-        System.out.println("Outside try-catch clause");
+        System.out.println("Outside try-catch-finally clause");
     }
 }

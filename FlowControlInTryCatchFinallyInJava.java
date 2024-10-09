@@ -7,6 +7,7 @@ public class FlowControlInTryCatchFinallyInJava {
         // occur in try block and handled in catch block
         int[] arr = new int[4];
         try {
+            // int i = arr[3];
             int i = arr[4];
             // this statement will never execute
             // as exception is raised by above statement

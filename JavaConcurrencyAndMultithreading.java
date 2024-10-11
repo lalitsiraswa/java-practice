@@ -45,35 +45,62 @@ class StackImpl {
         return stackTop >= array.length - 1;
     }
 
-    public boolean push(int element) {
-        synchronized (lock1) {
-            if (isFull())
-                return false;
-            ++stackTop;
-            try {
-                Thread.sleep(1000);
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-            array[stackTop] = element;
-            return true;
+    // public boolean push(int element) {
+    // synchronized (lock1) {
+    // if (isFull())
+    // return false;
+    // ++stackTop;
+    // try {
+    // Thread.sleep(1000);
+    // } catch (Exception ex) {
+    // System.out.println(ex.getMessage());
+    // }
+    // array[stackTop] = element;
+    // return true;
+    // }
+    // }
+    // --------------
+    public synchronized boolean push(int element) {
+        if (isFull())
+            return false;
+        ++stackTop;
+        try {
+            Thread.sleep(1000);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
+        array[stackTop] = element;
+        return true;
     }
 
-    public int pop() {
-        synchronized (lock1) {
-            if (isEmpty())
-                return Integer.MIN_VALUE;
-            int obj = array[stackTop];
-            array[stackTop] = Integer.MIN_VALUE;
-            try {
-                Thread.sleep(1000);
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-            --stackTop;
-            return obj;
+    // public int pop() {
+    // synchronized (lock1) {
+    // if (isEmpty())
+    // return Integer.MIN_VALUE;
+    // int obj = array[stackTop];
+    // array[stackTop] = Integer.MIN_VALUE;
+    // try {
+    // Thread.sleep(1000);
+    // } catch (Exception ex) {
+    // System.out.println(ex.getMessage());
+    // }
+    // --stackTop;
+    // return obj;
+    // }
+    // }
+    // ---------------
+    public synchronized int pop() {
+        if (isEmpty())
+            return Integer.MIN_VALUE;
+        int obj = array[stackTop];
+        array[stackTop] = Integer.MIN_VALUE;
+        try {
+            Thread.sleep(1000);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
+        --stackTop;
+        return obj;
     }
 }
 

@@ -59,18 +59,22 @@ class StackImpl {
     // return true;
     // }
     // }
-    // --------------
+    // --------------------
+    // What is the lock that is used in case of synchronized method, so the answer
+    // is 'this' object is used as a lock in case of synchronized method.
     public synchronized boolean push(int element) {
+        // synchronized (this) {
         if (isFull())
             return false;
         ++stackTop;
         try {
             Thread.sleep(1000);
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage()); 
         }
         array[stackTop] = element;
         return true;
+        // }
     }
 
     // public int pop() {
@@ -90,6 +94,7 @@ class StackImpl {
     // }
     // ---------------
     public synchronized int pop() {
+        // synchronized (this) {
         if (isEmpty())
             return Integer.MIN_VALUE;
         int obj = array[stackTop];
@@ -101,6 +106,7 @@ class StackImpl {
         }
         --stackTop;
         return obj;
+        // }
     }
 }
 

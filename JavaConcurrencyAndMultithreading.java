@@ -13,12 +13,25 @@ class Thread1 extends Thread {
     }
 }
 
+class Thread2 implements Runnable {
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + " is starting");
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Inside " + Thread.currentThread() + " : " + i);
+        }
+        System.out.println(Thread.currentThread().getName() + " is exiting");
+    }
+}
+
 public class JavaConcurrencyAndMultithreading {
     public static void main(String[] args) {
         System.out.println(Thread.currentThread().getName() + " is starting");
         Thread thread1 = new Thread1("Thread-1");
         // thread1.setDaemon(true);
         thread1.start();
+        Thread thread2 = new Thread(new Thread2(), "Thread-2");
+        thread2.start();
         System.out.println(Thread.currentThread().getName() + " is exiting");
     }
 }

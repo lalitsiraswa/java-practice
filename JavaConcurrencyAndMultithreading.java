@@ -70,7 +70,7 @@ class StackImpl {
         try {
             Thread.sleep(1000);
         } catch (Exception ex) {
-            System.out.println(ex.getMessage()); 
+            System.out.println(ex.getMessage());
         }
         array[stackTop] = element;
         return true;

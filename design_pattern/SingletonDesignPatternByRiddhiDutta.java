@@ -1,24 +1,35 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 class TVSet {
-    private static TVSet tvSetInstance = null;
+    private static volatile TVSet tvSetInstance = null;
 
     private TVSet() {
         System.out.println("TV Set Instantiated!");
     }
 
     public static TVSet getTVSetInstance() {
-        if (tvSetInstance == null)
-            tvSetInstance = new TVSet();
+        if (tvSetInstance == null) { // Optimisation
+            synchronized (TVSet.class) {
+                if (tvSetInstance == null) { // Double Checking
+                    tvSetInstance = new TVSet();
+                }
+            }
+        }
         return tvSetInstance;
     }
 }
 
 public class SingletonDesignPatternByRiddhiDutta {
     public static void main(String[] args) {
-        // Member1
-        TVSet tvSetForMember1 = TVSet.getTVSetInstance();
-        // Member2
-        TVSet tvSetForMember2 = TVSet.getTVSetInstance();
-        System.out.println(tvSetForMember1);
-        System.out.println(tvSetForMember2);
+        System.out.println(Thread.currentThread().getName() + " Started");
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        executorService.execute(() -> TVSet.getTVSetInstance());
+        executorService.execute(() -> TVSet.getTVSetInstance());
+        executorService.execute(() -> TVSet.getTVSetInstance());
+        executorService.execute(() -> TVSet.getTVSetInstance());
+        executorService.execute(() -> TVSet.getTVSetInstance());
+        executorService.execute(() -> TVSet.getTVSetInstance());
+        System.out.println(Thread.currentThread().getName() + " Exiting");
     }
 }

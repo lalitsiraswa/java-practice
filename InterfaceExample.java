@@ -88,6 +88,64 @@ interface DefaultMethod {
     }
 }
 
+// 2. Another feature that was added in JDK 8 is that we can now define static
+// methods in interfaces that can be called independently without an object.
+
+interface StaticMethod {
+    int a = 10;
+
+    static void showHello() {
+        System.out.println("Hello From Static Method!");
+    }
+}
+
+// In general, the development process is step by step:
+// Level 1 – interfaces: It contains the service details.
+// Level 2 – abstract classes: It contains partial implementation.
+// Level 3 – implementation classes: It contains all implementations.
+// Level 4 – Final Code / Main Method: It have access of all interfaces data.
+
+// Level-1
+interface Bank {
+    void deposit();
+
+    void withdraw();
+
+    void loan();
+
+    void account();
+}
+
+// Level-2
+abstract class Dev1 implements Bank {
+    @Override
+    public void deposit() {
+        System.out.println("Your Deposit Amount : " + 100);
+    }
+}
+
+abstract class Dev2 extends Dev1 {
+    @Override
+    public void withdraw() {
+        System.out.println("Your Withdraw Amount : " + 50);
+    }
+}
+
+// Level-3
+class Dev3 extends Dev2 {
+
+    @Override
+    public void loan() {
+        System.out.println("Your Loan Amount : " + 500);
+    }
+
+    @Override
+    public void account() {
+        System.out.println("Your Account Information");
+    }
+}
+
+// Level-4
 // A class that implements the interface.
 public class InterfaceExample implements In1, DefaultMethod {
     // Implementing the capabilities of interface.
@@ -124,5 +182,19 @@ public class InterfaceExample implements In1, DefaultMethod {
         System.out.println("--------------- Default Method --------------");
         InterfaceExample defaultMethod = new InterfaceExample();
         defaultMethod.printHelloWorld();
+        // -------------- Static Method In Interface -----------------
+        StaticMethod.showHello();
+        // -----------------------------------------------------------
+        Dev3 d = new Dev3();
+        d.account();
+        d.loan();
+        d.deposit();
+        d.withdraw();
     }
 }
+
+// New Features Added in Interfaces in JDK 9
+// From Java 9 onwards, interfaces can contain the following also:
+// 1. Static methods
+// 2. Private methods
+// 3. Private Static methods

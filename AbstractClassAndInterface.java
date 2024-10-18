@@ -1,3 +1,4 @@
+// From Java 8, interfaces can have default and static methods with concrete implementations.From Java 9, interfaces can also have private methods.
 abstract class Shape {
     String objectName = " ";
 
@@ -54,6 +55,24 @@ class Circle extends Shape {
     }
 }
 
+// -------------------------------------
+interface Drawable {
+    void draw();
+}
+
+interface Movable {
+    void moveTo(int x, int y);
+}
+
+class Circle implements Drawable, Movable{
+    double pi = 3.14;
+    int radius;
+    Circle(int radius){
+        this.radius = radius;
+    }
+}
+
+
 public class AbstractClassAndInterface {
     public static void main(String[] args) {
         Shape rect = new Rectangle(2, 3, "Rectangle");
@@ -63,5 +82,6 @@ public class AbstractClassAndInterface {
         Shape circle = new Circle(2, "Circle");
         System.out.println("Area of circle : " + circle.area());
         circle.area();
+        // -------------------------------------
     }
 }

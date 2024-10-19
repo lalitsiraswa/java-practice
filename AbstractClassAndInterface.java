@@ -64,14 +64,24 @@ interface Movable {
     void moveTo(int x, int y);
 }
 
-class Circle implements Drawable, Movable{
+class CircleShape implements Drawable, Movable {
     double pi = 3.14;
     int radius;
-    Circle(int radius){
+
+    CircleShape(int radius) {
         this.radius = radius;
     }
-}
 
+    @Override
+    public void draw() {
+        System.out.println("Circle has been drawn");
+    }
+
+    @Override
+    public void moveTo(int x, int y) {
+        System.out.println("Circle has been moved to x = " + x + " and y = " + y);
+    }
+}
 
 public class AbstractClassAndInterface {
     public static void main(String[] args) {
@@ -83,5 +93,8 @@ public class AbstractClassAndInterface {
         System.out.println("Area of circle : " + circle.area());
         circle.area();
         // -------------------------------------
+        CircleShape circleShape = new CircleShape(2);
+        circleShape.draw();
+        circleShape.moveTo(2, 4);
     }
 }

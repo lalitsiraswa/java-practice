@@ -15,6 +15,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
@@ -31,7 +32,6 @@ import java.util.Objects;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 @interface JsonElement {
-    public String key() default "";
 }
 
 // Let’s imagine that before serializing an object to a JSON string, we want to
@@ -54,10 +54,16 @@ class Person {
     @JsonElement
     private String lastName;
 
-    @JsonElement(key = "personAge")
+    @JsonElement()
     private String age;
 
     private String address;
+
+    public Person(String firstName, String lastName, String age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
 
     @Init
     private void initNames() {
@@ -102,17 +108,22 @@ class Person {
 // So far we’ve seen how to create custom annotations, and how to use them to
 // decorate the Person class. Now we’re going to see how to take advantage of
 // them by using Java’s Reflection API.
+class JsonSerializationException extends Exception {
+    public JsonSerializationException(String message) {
+        super(message);
+    }
+}
 
 public class CustomAnnotation {
     // 1. The first step will be to check whether our object is null or not, as well
     // as whether its type has the @JsonSerializable annotation or not:
-    private static void checkIfSerializable(Object object) {
+    private static void checkIfSerializable(Object object) throws JsonSerializationException {
         if (Objects.isNull(object)) {
-            throw new NullPointerException("The object to serialize is null");
+            throw new JsonSerializationException("The object to serialize is null");
         }
         Class<?> clazz = object.getClass();
         if (!clazz.isAnnotationPresent(JsonSerializable.class)) {
-            throw new NullPointerException(
+            throw new JsonSerializationException(
                     "The class " + clazz.getSimpleName() + " is not annotated with JsonSerializable");
         }
     }
@@ -134,14 +145,39 @@ public class CustomAnnotation {
     // JSON string from the map:
     private static String getJsonString(Object object) throws Exception {
         Class<?> clazz = object.getClass();
-        Map<String, String> jsonElementMap = new HashMap<String, String>();
-        for (Field field : clazz.getDeclaredFields()){
+        Map<String, String> jsonElementsMap = new HashMap<String, String>();
+        for (Field field : clazz.getDeclaredFields()) {
             field.setAccessible(true);
+            if (field.isAnnotationPresent(JsonElement.class)) {
+                jsonElementsMap.put(field.getName(), (String) field.get(object));
+            }
         }
-        return "";
+        String jsonString = jsonElementsMap.entrySet()
+                .stream()
+                .map(entry -> "\"" + entry.getKey() + "\":\""
+                        + entry.getValue() + "\"")
+                .collect(Collectors.joining(","));
+        return "{" + jsonString + "}";
+    }
+
+    // Our JSON serializer class combines all the above steps:
+    private static String convertToJson(Object object) throws Exception {
+        try {
+            checkIfSerializable(object);
+            initializeObject(object);
+            return getJsonString(object);
+        } catch (Exception e) {
+            throw new JsonSerializationException(e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
-
+        Person person = new Person("Lalit", "Siraswa", "25");
+        try {
+            String jsonString = convertToJson(person);
+            System.out.println(jsonString);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

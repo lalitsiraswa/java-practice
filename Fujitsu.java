@@ -4,11 +4,11 @@ class PrintSeries implements Runnable {
 
     @Override
     public void run() {
-        // synchronized (i) {
-        while (i <= 10) {
-            System.out.println(i++);
+        synchronized (i) {
+            while (i <= 10) {
+                System.out.println(i++);
+            }
         }
-        // }
     }
 }
 

@@ -28,7 +28,7 @@ public class MTAP {
         // }
         // int totalElementSum = 0;
         // for (int i = 0; i < numList.size(); i++) {
-        // totalElementSum += numList.get(i);
+        // totalElemmentSum += numList.get(i);
         // }
         // System.out.println(totalSum - totalElementSum);
 

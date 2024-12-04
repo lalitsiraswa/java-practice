@@ -1,5 +1,3 @@
-package object_oriented_programming_concept;
-
 // Java Program to demonstrate
 // Java Encapsulation
 

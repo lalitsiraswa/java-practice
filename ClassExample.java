@@ -1,5 +1,3 @@
-package object_oriented_programming_concept;
-
 class GFG {
     static String Employee_name;
     static float Employee_salary;

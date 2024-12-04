@@ -1,5 +1,3 @@
-package object_oriented_programming_concept;
-
 import org.w3c.dom.css.Rect;
 
 // Java program to illustrate the

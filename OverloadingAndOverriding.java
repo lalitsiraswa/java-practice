@@ -1,5 +1,3 @@
-package object_oriented_programming_concept;
-
 // Method Overloading in Java
 // In Java, Method Overloading allows different methods to have the same name, but different signatures where the signature can differ by the number of input parameters or type of input parameters, or a mixture of both.
 // In Method overloading compared to the parent argument, the child argument will get the highest priority.

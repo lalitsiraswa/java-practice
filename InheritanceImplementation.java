@@ -1,5 +1,3 @@
-package object_oriented_programming_concept;
-
 // Java program to illustrate the
 // concept of inheritance
 // base class

@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public class HashMapPractice {
@@ -36,6 +38,12 @@ public class HashMapPractice {
         while (iterator.hasNext()) {
             Map.Entry<String, Integer> entry = iterator.next();
             System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
+        // ----------------------
+        List<Integer> integers = new ArrayList<>(List.of(2, 4, 6, 8, 10));
+        Iterator<Integer> intIterator = integers.iterator();
+        while (intIterator.hasNext()) {
+            System.out.println(intIterator.next());
         }
     }
 }
